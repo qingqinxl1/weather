@@ -1,11 +1,11 @@
 {
   "name": "@cnpm/weather",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "天气预报组件",
   "main": "./index.js",
   "scripts": {
     "build": "webpack",
-    "server": "webpack-dev-server",
+    "start": "webpack-dev-server",
     "rsync": "rsync -to fphtml/weather/dist/"
   },
   "keywords": [
@@ -16,7 +16,6 @@
   "license": "ISC",
   "devDependencies": {
     "@cnpm/rsync": "0.0.2",
-    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",

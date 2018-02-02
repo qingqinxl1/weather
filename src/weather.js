@@ -2,8 +2,9 @@
 // 调用本地存储功能
 //@dependence jQuery
 var StoragePolyfill = require('@cnpm/storage');
-var City = require('./city');
 var CookieUtil = require('@cnpm/cookie-util');
+var City = require('./city');
+var jsVersion = require('./version');
 
 var Weather = function () {
   var weatherStorageKey = "chinasoWeather",
@@ -80,7 +81,7 @@ var Weather = function () {
     getWeatherData: function () {
       var self = this,
         storageVal = storageObj.get(weatherStorageKey) || null;
-      if (!storageVal || (typeof storageVal.version == 'undefined') || (storageVal.version != storageObj.version)) {
+      if (!storageVal || (typeof storageVal.version == 'undefined') || (storageVal.version != jsVersion)) {
         self.requestWeatherData();
         return;
       }
@@ -109,6 +110,7 @@ var Weather = function () {
       var self = this;
       if (weatherData && weatherData.length) {
         weatherData = weatherData[0];
+        weatherData.version = jsVersion;
       }
       // 计算毫秒数：1000 * 60 * 60 * timestampDay
       var expires = new Date().getTime() + 36e5 * timestampDay;

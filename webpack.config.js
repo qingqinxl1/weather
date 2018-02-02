@@ -5,9 +5,11 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    weather: ['./index.js']
+  },
   output: {
-    filename: 'weather.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   // 引用外部 jQuery
@@ -23,7 +25,8 @@ module.exports = {
             loader: 'css-loader',
             query: {
               sourceMap: true,
-              minimize: true
+              minimize: true,
+              name: '[name].[ext]'
             }
           }]
         }),
@@ -43,7 +46,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin('static/dist'),
+    // new CleanWebpackPlugin('./dist'),
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true,

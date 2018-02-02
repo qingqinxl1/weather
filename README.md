@@ -9,7 +9,7 @@ http://www.chinaso.com/weather/query/updateWheatherState | 天气预报数据获
 * 说明：引入前先引入jquery
 ```html
 <!--引入css-->
-<link rel="stylesheet" href="http://n3.static.pg0.cn/fp/weather/dist/main.css">
+<link rel="stylesheet" href="http://n3.static.pg0.cn/fp/weather/dist/weather.css">
 
 <!--引入js-->
 <script src="http://n3.static.pg0.cn/fp/weather/dist/weather.js" type="text/javascript"></script>
