@@ -18,4 +18,12 @@ http://www.chinaso.com/weather/query/updateWheatherState | 天气预报数据获
 ```html
 <div id="chinaso_weather"></div>
 ```
+### 说明
+* 若天气缓存数据有问题，bug修复后为了清除客户端已经缓存的数据，可以在页面中添加以下代码
+```html
+<script>
+  //修改天气缓存版本号以更新天气本地缓存
+  window["WEATHER_STORAGE_VERSION"]='1.1.0';
+</script>
+```
 
