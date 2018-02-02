@@ -5,6 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     weather: ['./index.js']
   },
@@ -51,9 +52,6 @@ module.exports = {
       filename: '[name].css',
       allChunks: true,
     }),
-    new webpack.BannerPlugin({
-      banner: 'date:' + new Date() + ', hash:[hash], chunkhash:[chunkhash], name:[name], filebase:[filebase], query:[query], file:[file]',
-    }),
     new UglifyJSPlugin({
       uglifyOptions: {
         ie8: true,
@@ -63,7 +61,11 @@ module.exports = {
         output: {
           ascii_only: true,
         },
-      }
-    })
+      },
+      sourceMap: true,
+    }),
+    new webpack.BannerPlugin({
+      banner: 'date:' + new Date() + ', hash:[hash], chunkhash:[chunkhash], name:[name], filebase:[filebase], query:[query], file:[file]',
+    }),
   ]
 };
