@@ -1,6 +1,6 @@
 {
-  "name": "@cnpm/weather",
-  "version": "1.0.3",
+  "name": "@buss/weather",
+  "version": "1.0.0",
   "description": "天气预报组件",
   "main": "./index.js",
   "scripts": {
